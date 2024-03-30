@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+
+<img src="../static/photo/faces.jpg" alt="">
+<form action="/" method="post">
+    {% with messages = get_flashed_messages(with_categories=true)  %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+</form>
+<button class="nav-item"><a href="/logout/" class="nav-link">Выйти</a></button>
+{% endblock %}
